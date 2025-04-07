@@ -1,0 +1,85 @@
+{% extends "method.html" %}
+
+{% block content %}
+    <section class="lg:grid lg:grid-cols-3 lg:gap-10 flex flex-col gap-y-5">
+        <form class="space-y-5 lg:col-span-1 form my-1">
+            <div class="flex items-center w-full gap-x-4 lg:flex-col lg:items-stretch lg:space-y-5">
+                <div class="space-y-3 flex-1 0">
+                    <div class="flex items-center gap-x-5">
+                        <div class="flex flex-col gap-y-3 periodo_container">
+                            <label class="font-bold text-xl" for="periodo">Periodo</label>
+                            <select class="px-2 py-1 border-[1px] rounded-md font-medium" name="periodo" id="periodo">
+                                <option value="Dia">Dia</option>
+                                <option value="Mes">Mes</option>
+                                <option value="Año">Año</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-y-3 cantidad_container flex-1 w-0">
+                            <label class="font-bold text-xl" for="cantidad">Cantidad</label>
+                            <input class="py-1 px-2 border-[1px] rounded-md  font-medium" placeholder="Cantidad Demandada" name="cantidad" id="cantidad" type="number">
+                        </div>
+                    </div>
+                    <div class="p-[1.5px] bg-gray-400 rounded-md hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500 transition-colors duration-200 ease-in">
+                        <button class="block py-2 px-2 w-full cursor-pointer text-lg font-medium bg-white rounded-md hover:text-orange-500 hover:font-extrabold hover:text-xl transition-all duration-200 ease-in btn_submit">Agregar</button>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-y-3">
+                    <p class="flex gap-x-2 items-center text-lg">Trabajar con 
+                        <select class="w-[50px] rounded-sm border-[1px] sel_periodos">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select> 
+                        periodos
+                    </p>
+                    <div class="p-[1.5px] bg-gray-400 rounded-md hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500 transition-colors duration-200 ease-in">
+                        <button type="button" class="block py-2 px-2 w-full cursor-pointer text-lg font-medium bg-white rounded-md hover:text-orange-500 hover:font-extrabold hover:text-xl transition-all duration-200 ease-in btn_pronosticar">Pronosticar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="col-span-2 h-full space-y-3">
+            <nav class="flex items-center gap-x-10 nav">
+                <h2 class="text-2xl font-extrabold hover:text-orange-500 cursor-pointer underline">Datos</h2>
+                <h2 class="text-2xl font-extrabold hover:text-orange-500 cursor-pointer">Resultados</h2>
+                <h2 class="text-2xl font-extrabold hover:text-orange-500 cursor-pointer">Grafico</h2>
+            </nav>
+            <div class="border-[1px] rounded-lg max-h-[258px] overflow-y-scroll">
+                <div class="data_nav">
+                    <div class="grid grid-cols-3 p-1 gap-2 place-items-center">
+                        <p class="font-bold text-lg">Periodo</p>
+                        <p class="font-bold text-lg">Demanda</p>
+                        <p class="font-bold text-lg">Opciones</p>
+                    </div>
+                </div>
+                <div class="hidden result_nav">
+                    <div class="grid grid-cols-4 p-1 gap-2 place-items-center">
+                        <p class="font-bold text-lg">Periodo</p>
+                        <p class="font-bold text-lg">Demanda</p>
+                        <p class="font-bold text-lg">Pronostico</p>
+                        <p class="font-bold text-lg">Diferencia</p>
+                    </div>
+                </div>
+                <div class="data_container">
+                </div>
+            </div>
+            <div class="skeleton hidden h-full space-y-3">
+                {% for i in range(4) %}
+                    <div class="grid grid-cols-4 gap-x-3 animate-pulse">
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <canvas id="chart"></canvas>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script src="../static/scripts/movil_simple.js"></script>
+{% endblock %}

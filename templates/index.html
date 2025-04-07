@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Pronostico de Demanda</title>
+</head>
+<body class="my-5 text-[#213547]">
+    <div class="mx-auto w-[50%] flex flex-col gap-y-10">
+        <header class="w-full flex justify-center ">
+            <div class="text-center flex flex-col justify-center items-center">
+                <h1 class="text-[76px] font-extrabold font-[Inter]">
+                    Pronosticos de <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500">
+                        Demanda
+                    </span>
+                </h1>
+            </div>
+        </header>
+        <section class="space-y-5 p-5 ">
+            <h2 class="text-3xl font-extrabold">Metodos</h2>
+            <ul class="space-y-5">
+                <li class="inline-block cursor-pointer px-3 py-1 text-lg font-extrabold btnMovil">
+                    <div>
+                        <div class="flex gap-x-3 items-center group hover:ml-5 transition-all duration-200 ease-in btnContainer">
+                            <svg class="text-gray-500 fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 80c0 18-14.3 34.6-38.4 48c-29.1 16.1-72.5 27.5-122.3 30.9c-3.7-1.8-7.4-3.5-11.3-5C300.6 137.4 248.2 128 192 128c-8.3 0-16.4 .2-24.5 .6l-1.1-.6C142.3 114.6 128 98 128 80c0-44.2 86-80 192-80S512 35.8 512 80zM160.7 161.1c10.2-.7 20.7-1.1 31.3-1.1c62.2 0 117.4 12.3 152.5 31.4C369.3 204.9 384 221.7 384 240c0 4-.7 7.9-2.1 11.7c-4.6 13.2-17 25.3-35 35.5c0 0 0 0 0 0c-.1 .1-.3 .1-.4 .2c0 0 0 0 0 0s0 0 0 0c-.3 .2-.6 .3-.9 .5c-35 19.4-90.8 32-153.6 32c-59.6 0-112.9-11.3-148.2-29.1c-1.9-.9-3.7-1.9-5.5-2.9C14.3 274.6 0 258 0 240c0-34.8 53.4-64.5 128-75.4c10.5-1.5 21.4-2.7 32.7-3.5zM416 240c0-21.9-10.6-39.9-24.1-53.4c28.3-4.4 54.2-11.4 76.2-20.5c16.3-6.8 31.5-15.2 43.9-25.5l0 35.4c0 19.3-16.5 37.1-43.8 50.9c-14.6 7.4-32.4 13.7-52.4 18.5c.1-1.8 .2-3.5 .2-5.3zm-32 96c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9C304.9 404.7 251.6 416 192 416c-62.8 0-118.6-12.6-153.6-32C14.3 370.6 0 354 0 336l0-35.4c12.5 10.3 27.6 18.7 43.9 25.5C83.4 342.6 135.8 352 192 352s108.6-9.4 148.1-25.9c7.8-3.2 15.3-6.9 22.4-10.9c6.1-3.4 11.8-7.2 17.2-11.2c1.5-1.1 2.9-2.3 4.3-3.4l0 3.4 0 5.7 0 26.3zm32 0l0-32 0-25.9c19-4.2 36.5-9.5 52.1-16c16.3-6.8 31.5-15.2 43.9-25.5l0 35.4c0 10.5-5 21-14.9 30.9c-16.3 16.3-45 29.7-81.3 38.4c.1-1.7 .2-3.5 .2-5.3zM192 448c56.2 0 108.6-9.4 148.1-25.9c16.3-6.8 31.5-15.2 43.9-25.5l0 35.4c0 44.2-86 80-192 80S0 476.2 0 432l0-35.4c12.5 10.3 27.6 18.7 43.9 25.5C83.4 438.6 135.8 448 192 448z"/>
+                                <defs>
+                                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                      <stop offset="0%" style="stop-color: #f87171; stop-opacity: 1" />
+                                      <stop offset="100%" style="stop-color: #fbbf24; stop-opacity: 1" />
+                                    </linearGradient>
+                                  </defs>
+                                  <path fill="transparent" class="transition-all group-hover:fill-[url(#gradient1)] icon-state" d="M512 80c0 18-14.3 34.6-38.4 48c-29.1 16.1-72.5 27.5-122.3 30.9c-3.7-1.8-7.4-3.5-11.3-5C300.6 137.4 248.2 128 192 128c-8.3 0-16.4 .2-24.5 .6l-1.1-.6C142.3 114.6 128 98 128 80c0-44.2 86-80 192-80S512 35.8 512 80zM160.7 161.1c10.2-.7 20.7-1.1 31.3-1.1c62.2 0 117.4 12.3 152.5 31.4C369.3 204.9 384 221.7 384 240c0 4-.7 7.9-2.1 11.7c-4.6 13.2-17 25.3-35 35.5c0 0 0 0 0 0c-.1 .1-.3 .1-.4 .2c0 0 0 0 0 0s0 0 0 0c-.3 .2-.6 .3-.9 .5c-35 19.4-90.8 32-153.6 32c-59.6 0-112.9-11.3-148.2-29.1c-1.9-.9-3.7-1.9-5.5-2.9C14.3 274.6 0 258 0 240c0-34.8 53.4-64.5 128-75.4c10.5-1.5 21.4-2.7 32.7-3.5zM416 240c0-21.9-10.6-39.9-24.1-53.4c28.3-4.4 54.2-11.4 76.2-20.5c16.3-6.8 31.5-15.2 43.9-25.5l0 35.4c0 19.3-16.5 37.1-43.8 50.9c-14.6 7.4-32.4 13.7-52.4 18.5c.1-1.8 .2-3.5 .2-5.3zm-32 96c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9C304.9 404.7 251.6 416 192 416c-62.8 0-118.6-12.6-153.6-32C14.3 370.6 0 354 0 336l0-35.4c12.5 10.3 27.6 18.7 43.9 25.5C83.4 342.6 135.8 352 192 352s108.6-9.4 148.1-25.9c7.8-3.2 15.3-6.9 22.4-10.9c6.1-3.4 11.8-7.2 17.2-11.2c1.5-1.1 2.9-2.3 4.3-3.4l0 3.4 0 5.7 0 26.3zm32 0l0-32 0-25.9c19-4.2 36.5-9.5 52.1-16c16.3-6.8 31.5-15.2 43.9-25.5l0 35.4c0 10.5-5 21-14.9 30.9c-16.3 16.3-45 29.7-81.3 38.4c.1-1.7 .2-3.5 .2-5.3zM192 448c56.2 0 108.6-9.4 148.1-25.9c16.3-6.8 31.5-15.2 43.9-25.5l0 35.4c0 44.2-86 80-192 80S0 476.2 0 432l0-35.4c12.5 10.3 27.6 18.7 43.9 25.5C83.4 438.6 135.8 448 192 448z"/>
+                            </svg>
+                            <span class="group-hover:text-transparent  group-hover:text-xl bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 transition-all duration-200 ease-in movil-text">
+                                Promedio Movil
+                            </span>
+                        </div>
+                        <ul class="py-2 px-3 ml-10 hidden text-[1rem] options">
+                            <li class="hover:text-2xl ml-3 transition-all duration-150">
+                                <a href="/method/promedio_simple">Simple</a>
+                            </li>
+                            <li class="hover:text-2xl ml-3 transition-all duration-150">
+                                <a href="/method/promedio_ponderado">Ponderado</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="flex cursor-pointer px-3 py-1 text-lg font-extrabold">
+                    <div class="flex gap-x-3 items-center group hover:ml-5 transition-all duration-200 ease-in">
+                        <svg class="text-gray-500 fill-current w-6 h-6 transition-colors duration-500 ease-in" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" style="stop-color: #f87171; stop-opacity: 1" />
+                                  <stop offset="100%" style="stop-color: #fbbf24; stop-opacity: 1" />
+                                </linearGradient>
+                              </defs>
+                              <path fill="transparent" class="transition-all group-hover:fill-[url(#gradient1)]" d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/>
+                        </svg>
+                        <a href="/method/suavizacion_exponencial" class="group-hover:text-transparent  group-hover:text-xl bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 transition-all duration-200 ease-in">
+                            Suavizacion Exponencial
+                        </a>
+                    </div>
+                </li>
+                <li class="flex items-center gap-x-3 cursor-pointer px-3 py-1 text-lg font-extrabold">
+                    <div class="flex items-center gap-x-3 group hover:ml-5 transition-all duration-200 ease-in">
+                        <svg class="text-gray-500 fill-current w-6 h-6 transition-colors duration-500 ease-in" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 96c0-35.3-28.7-64-64-64L64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320zM256 160c0 17.7-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l96 0c17.7 0 32 14.3 32 32zm64 64c17.7 0 32 14.3 32 32s-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l192 0zM192 352c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32s14.3-32  32-32l32 0c17.7 0 32 14.3 32 32z"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" style="stop-color: #f87171; stop-opacity: 1" />
+                                  <stop offset="50%" style="stop-color: #fb923c; stop-opacity: 1" />
+                                  <stop offset="100%" style="stop-color: #f59e0b; stop-opacity: 1" />
+                                </linearGradient>
+                              </defs>
+                              <path fill="transparent" class="transition-all group-hover:fill-[url(#gradient2)]" d="M448 96c0-35.3-28.7-64-64-64L64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320zM256 160c0 17.7-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l96 0c17.7 0 32 14.3 32 32zm64 64c17.7 0 32 14.3 32 32s-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l192 0zM192 352c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0c17.7 0 32 14.3 32 32z"/>
+                        </svg>
+                        <a href="/method/minimos_cuadrados" class="group-hover:text-transparent  group-hover:text-xl bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 transition-all duration-200 ease-in">
+                            Minimos Cuadrados
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+<script>
+    const btnMovil = document.querySelector(".btnMovil");
+    const options = document.querySelector(".options");
+    const iconColor = document.querySelector('.icon-state');
+    const btnContainer = document.querySelector('.btnContainer');
+    const btnText = document.querySelector('.movil-text');
+
+    btnMovil.addEventListener('click', (e) => {
+
+        
+
+        if(options.classList.contains('hidden')) {
+            options.classList.remove('hidden');
+            options.classList.add('flex', 'flex-col', 'gap-y-3');
+            iconColor.classList.add('fill-[url(#gradient1)]');
+            btnContainer.classList.add('ml-5');
+            btnText.classList.add('text-transparent', 'text-xl');
+            return;
+        }
+
+        options.classList.add('hidden');
+        options.classList.remove('flex', 'flex-col', 'gap-y-3');
+        iconColor.classList.remove('fill-[url(#gradient1)]');
+        btnContainer.classList.remove('ml-5');
+        btnText.classList.remove('text-transparent', 'text-xl');
+    })
+</script>
+</html>
