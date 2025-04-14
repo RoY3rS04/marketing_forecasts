@@ -1,14 +1,15 @@
 const form = document.querySelector('.form');
 const select = document.getElementById('periodo');
 const cantidad = document.getElementById('cantidad');
+const alpha = document.getElementById('alpha');
 const skeleton = document.querySelector('.skeleton');
 const dataContainer = document.querySelector('.data_container');
 const records = document.querySelectorAll('.record');
 const btnSubmit = document.querySelector('.btn_submit');
 const btnPronosticar = document.querySelector('.btn_pronosticar');
-const selectPeriodos = document.querySelector('.sel_periodos');
 const nav = document.querySelector('.nav');
 const ctx = document.getElementById('chart');
+const startFromPeriod = document.getElementById('startFromPeriod');
 let chart;
 
 let dataCounter = 1;
@@ -123,22 +124,28 @@ form.addEventListener('submit', async (e) => {
     cleanPeriods();
     renderPeriods(periodDemands);
     
+    if(dataCounter > 2) {
+        startFromPeriod.innerHTML += `
+            <option value="${dataCounter}">${dataCounter}</option>
+        `
+    }
+    
     dataCounter++;
 });
 
 btnPronosticar.addEventListener('click', async (e) => {
 
-    const periodsToWorkWith = parseInt(selectPeriodos.value);
+    const alphaVal = parseFloat(alpha.value);
 
-    if(periodDemands.length < periodsToWorkWith) {
-        const periodsError = document.createElement('div');
-        periodsError.textContent = 'No puedes realizar un pronostico con menos periodos de los que planeas trabajar';
-        periodsError.classList.add('bg-red-200', 'text-red-500', 'text-lg', 'font-medium', 'py-1', 'px-2', 'rounded-md', 'absolute', 'bottom-5', 'right-5');
+    if(isNaN(alphaVal) || alphaVal < 0 || alphaVal > 1) {
+        const alphaError = document.createElement('div');
+        alphaError.textContent = 'El valor de alpha debe ser un numero entre 0 y 1';
+        alphaError.classList.add('bg-red-200', 'text-red-500', 'text-lg', 'font-medium', 'py-1', 'px-2', 'rounded-md', 'absolute', 'bottom-5', 'right-5');
 
-        form.appendChild(periodsError)
+        form.appendChild(alphaError)
         
         setTimeout(() => {
-            form.removeChild(periodsError)
+            form.removeChild(alphaError)
         }, 5000);
         return;
     }
@@ -146,11 +153,12 @@ btnPronosticar.addEventListener('click', async (e) => {
     cleanPeriods();
     skeleton.classList.remove('hidden');
 
-    const res = await fetch('/method/promedio_simple', {
+    const res = await fetch('/method/suavizacion_exponencial', {
         method: 'POST',
         body: JSON.stringify({
             periods: periodDemands,
-            periodsToWorkWith
+            alpha: alphaVal,
+            startFrom: parseInt(startFromPeriod.value)
         }),
         headers: {
             'Content-Type': 'application/json'

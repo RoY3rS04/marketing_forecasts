@@ -24,15 +24,14 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-y-3">
-                    <p class="flex gap-x-2 items-center text-lg">Trabajar con 
-                        <select class="w-[50px] rounded-sm border-[1px] sel_periodos">
+                    <p class="flex gap-x-2 items-center text-lg">Trabajar con α = 
+                        <input name="alpha" id="alpha" class="rounded-sm py-1 px-2 border-[1px] w-20">
+                        </input> 
+                    </p>
+                    <p class="flex gap-x-2 items-center text-lg">Empezar desde el periodo 
+                        <select name="startFrom" id="startFromPeriod" class="rounded-sm py-1 px-2 border-[1px] w-20">
                             <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
                         </select> 
-                        periodos
                     </p>
                     <div class="p-[1.5px] bg-gray-400 rounded-md hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500 transition-colors duration-200 ease-in">
                         <button type="button" class="block py-2 px-2 w-full cursor-pointer text-lg font-medium bg-white rounded-md hover:text-orange-500 hover:font-extrabold hover:text-xl transition-all duration-200 ease-in btn_pronosticar">Pronosticar</button>
@@ -83,5 +82,5 @@
 {% endblock %}
 
 {% block script %}
-    <script src="../static/scripts/movil_simple.js"></script>
+    <script src="../static/scripts/suavizacion_exponencial.js"></script>
 {% endblock %}

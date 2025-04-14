@@ -146,7 +146,7 @@ btnPronosticar.addEventListener('click', async (e) => {
     cleanPeriods();
     skeleton.classList.remove('hidden');
 
-    const res = await fetch('/method/promedio_simple', {
+    const res = await fetch('/method/promedio_ponderado', {
         method: 'POST',
         body: JSON.stringify({
             periods: periodDemands,
