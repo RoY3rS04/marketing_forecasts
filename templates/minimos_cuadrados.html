@@ -1,0 +1,84 @@
+{% extends "method.html" %}
+
+{% block content %}
+    <section class="lg:grid lg:grid-cols-3 lg:gap-10 flex flex-col gap-y-5">
+        <form class="space-y-5 lg:col-span-1 form my-1">
+            <div class="flex items-center w-full gap-x-4 lg:flex-col lg:items-stretch lg:space-y-5">
+                <div class="space-y-3 flex-1">
+                    <div class="space-y-3 w-full">
+                        <div class="flex flex-col gap-y-2">
+                            <label class="font-bold text-md" for="dependent">Nombre Variable dependiente (Y)</label>
+                            <input class="px-2 py-1 border-[1px] rounded-md font-medium" name="dependent" id="dependent">
+                            </input>
+                        </div>
+                        <div class="flex flex-col gap-y-2">
+                            <label class="font-bold text-md" for="independent">Nombre Variable Independiente (X)</label>
+                            <input class="py-1 px-2 border-[1px] rounded-md  font-medium" name="independent" id="independent">
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <p class="text-lg font-medium">Valores</p>
+                        <div class="flex items-center gap-x-3">
+                            <div class="flex flex-1 w-0 flex-col gap-y-1">
+                                <label class="text-lg font-medium" for="y">Y</label>
+                                <input class="border-[1px] rounded-md py-1 px-2" name="y" id="y" type="text">
+                            </div>
+                            <div class="flex flex-1 w-0 flex-col gap-y-1">
+                                <label class="text-lg font-medium" for="x">X</label>
+                                <input class="border-[1px] rounded-md py-1 px-2" name="x" id="x" type="text">
+                            </div>
+                        </div>
+                        <div class="p-[1.5px] bg-gray-400 rounded-md hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500 transition-colors duration-200 ease-in">
+                            <button type="button" class="block py-2 px-2 w-full cursor-pointer text-lg font-medium bg-white rounded-md hover:text-orange-500 hover:font-extrabold hover:text-xl transition-all duration-200 ease-in btn_add">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="p-[1.5px] bg-gray-400 rounded-md hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500 transition-colors duration-200 ease-in">
+                        <button class="block py-2 px-2 w-full cursor-pointer text-lg font-medium bg-white rounded-md hover:text-orange-500 hover:font-extrabold hover:text-xl transition-all duration-200 ease-in btn_submit">Calcular Correlacion</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="col-span-2 h-full space-y-3">
+            <nav class="flex items-center gap-x-10 nav">
+                <h2 class="text-2xl font-extrabold hover:text-orange-500 cursor-pointer underline">Datos</h2>
+                <h2 class="text-2xl font-extrabold hover:text-orange-500 cursor-pointer">Resultados</h2>
+                <h2 class="text-2xl font-extrabold hover:text-orange-500 cursor-pointer">Grafico</h2>
+            </nav>
+            <div class="border-[1px] rounded-lg max-h-[258px] overflow-y-scroll">
+                <div class="data_nav">
+                    <div class="grid grid-cols-3 p-1 gap-2 place-items-center">
+                        <p class="text-lg font-bold dependent"></p>
+                        <p class="text-lg font-bold independent"></p>
+                        <p class="text-lg font-bold independent">Opciones</p>
+                    </div>
+                </div>
+                <div class="hidden result_nav">
+                    <div class="grid grid-cols-3 p-1 gap-2 place-items-center">
+                        <p class="font-bold text-lg res_dependent"></p>
+                        <p class="font-bold text-lg res_independent"></p>
+                        <p class="font-bold text-lg">Pronostico</p>
+                    </div>
+                </div>
+                <div class="data_container">
+                </div>
+            </div>
+            <div class="skeleton hidden h-full space-y-3">
+                {% for i in range(4) %}
+                    <div class="grid grid-cols-4 gap-x-3 animate-pulse">
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                        <div class="bg-gray-300 rounded-sm py-4 px-20"></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="chart_container flex items-center justify-center p-10 rounded-md">
+                <canvas class="cursor-pointer hidden" id="chart"></canvas>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script src="../static/scripts/minimos_cuadrados.js"></script>
+{% endblock %}

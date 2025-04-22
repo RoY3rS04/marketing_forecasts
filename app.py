@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask import render_template
+import math
 
 app = Flask(__name__)
 
@@ -25,6 +26,8 @@ def method(method):
             return render_template('movil_ponderado.html', method=method)
         case 'suavizacion_exponencial':
             return render_template('suavizacion_exponencial.html', method=method)
+        case 'minimos_cuadrados':
+            return render_template('minimos_cuadrados.html', method=method)
         case _:
             return render_template('404.html')
 
@@ -164,6 +167,64 @@ def suavizacionExponencial():
         })
 
     return jsonify(forecastedPeriods), 200
+
+@app.route('/method/minimos_cuadrados', methods=['POST'])
+def minimos_cuadrados():
+    data, xName, yName = request.json.values()
+
+    forecastedData = []
+
+    n = len(data)
+
+    sum_x = 0
+    sum_x_squared = 0
+    sum_y = 0
+    sum_y_squared = 0
+    sum_xy = 0
+    yAvg = 0
+    xAvg = 0
+
+    for record in data:
+        xValue = record['xValue']
+        yValue = record['yValue']
+
+        sum_x += xValue
+        sum_x_squared += xValue**2
+        sum_y += yValue
+        sum_y_squared += yValue**2
+        sum_xy += xValue*yValue
+
+    xAvg = sum_x / n
+    yAvg = sum_y / n
+
+    _SCx = sum_x_squared - (sum_x**2 / n)
+    _SCy = sum_y_squared - (sum_y**2 / n)
+    _SCxy = sum_xy - (
+        (sum_x * sum_y) / n
+    )
+
+    b_1 = _SCxy / _SCx
+    b_0 = yAvg - b_1*xAvg
+
+    def fn(x): return b_0+b_1*x
+
+    for record in data: 
+        forecastedData.append({
+            'xValue': record['xValue'],
+            'yValue': record['yValue'],
+            'yForecasted': fn(record['xValue'])
+        })
+
+
+    return jsonify({
+        'xName': xName,
+        'yName': yName,
+        'forecastedData': forecastedData,
+        'generatedFunction': f"{b_0}{b_1 if b_1 < 0 else f"+{b_1}"}x",
+        'correlation': b_1*math.sqrt((_SCx/_SCy))
+    }), 200
+
+
 
 def getPeriodWeights(periodsToWorkWith):
     match periodsToWorkWith:
